@@ -17,6 +17,7 @@ export default tseslint.config(
       'storybook-static',
       'docs',
       '.github',
+      'src/openapi',
     ],
   },
   {
@@ -25,9 +26,12 @@ export default tseslint.config(
       ...tseslint.configs.recommendedTypeChecked,
       eslintConfigPrettier,
       sonarjs.configs.recommended,
-      storybook.configs.recommended,
+      reactRefresh.configs.recommended,
+      // storybook.configs.recommended,
+      // reactHooks.configs.recommended,
     ],
-    files: ['**/*.{ts,tsx}'],
+    ignores: ['src/openapi'],
+    files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -36,13 +40,7 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      ...reactHooks.configs['jsx-runtime'].rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

@@ -14,7 +14,7 @@ export default function ThemeToggle() {
 	}, [theme]);
 
 	useEffect(() => {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		 
 		themeChange(false);
 		// 👆 false parameter is required for react project
 	}, []);

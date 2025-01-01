@@ -11,7 +11,7 @@ describe('ThemeToggle', () => {
     cleanup();
   });
 
-  it('renders a rounded button', async () => {
+  it('renders a rounded button', () => {
     const { getByRole } = render(<ThemeToggle />);
 
     const button = getByRole('button');
