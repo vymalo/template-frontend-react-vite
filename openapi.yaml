@@ -1,0 +1,218 @@
+openapi: 3.0.3
+info:
+  title: School OpenApi
+  description: |
+    School management app using CBOR as PoC. More at [https://school.vymalo.com](https://school.vymalo.com)
+  termsOfService: https://school.vymalo.com/res/tos
+  contact:
+    email: school@vymalo.com
+    name: Vymalo School Team
+  license:
+    name: MIT
+  version: 0.1.0
+externalDocs:
+  description: |
+    Find out more about Managing your school from afar. Let's meet on 
+    our website 😉.
+  url: https://school.vymalo.com
+servers:
+  - url: "{scheme}://{host}:{port}"
+    description: Random Server
+    variables:
+      scheme:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        enum:
+          - localhost
+          - 0.0.0.0
+        default: localhost
+      port:
+        enum:
+          - "3000"
+          - "8080"
+          - "80"
+          - "443"
+        default: "3000"
+  - url: https://{env}.vymalo.com
+    description: Vymalo Environment
+    variables:
+      env:
+        enum:
+          - school
+          - school-dev
+        default: school-dev
+tags:
+  - name: school
+    description: All about managing School
+paths:
+  /api/schools:
+    post:
+      tags:
+        - school
+      summary: Create school
+      description: |
+        Create a school. This just start the process. In fact, a school
+        needs to be validated from the admin site and get the approval of
+        the admins and now we shall also validate with the complete it
+        using the `updateSchool` method
+      operationId: createSchool
+      requestBody:
+        description: Send sms request
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimpleSchool"
+        required: true
+      responses:
+        200:
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/School"
+        400:
+          description: "wrong content provided"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        500:
+          description: "Internal server"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    get:
+      tags:
+        - school
+      summary: Get schools
+      description: |
+        This endpoint is mainly for administrators. This help in fetching
+        all schools in the system.
+      operationId: getSchools
+      responses:
+        200:
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageResponseSchool"
+        400:
+          description: "wrong content provided"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        500:
+          description: "Internal server"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /api/schools/{id}:
+    get:
+      tags:
+        - school
+      summary: Get single schools
+      description: |
+        Get a single School. This might return 4xx or 5xx if the user
+        doesn't have the right to view it.
+      operationId: getSingleSchool
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: cuid
+      responses:
+        200:
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/School"
+        400:
+          description: "wrong content provided"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        500:
+          description: "Internal server"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: number
+      required:
+        - message
+        - code
+    School:
+      allOf:
+        - $ref: "#/components/schemas/Model"
+        - $ref: "#/components/schemas/SimpleSchool"
+    SimpleSchool:
+      type: object
+      properties:
+        name:
+          type: string
+        contact:
+          $ref: "#/components/schemas/SchoolContact"
+      required:
+        - name
+        - contact
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+          format: cuid
+        createdAt:
+          type: string
+          format: date
+        updatedAt:
+          type: string
+          format: date
+      required:
+        - id
+    SchoolContact:
+      type: object
+      properties:
+        name:
+          type: string
+        phoneNumber:
+          type: string
+      required:
+        - name
+        - phoneNumber
+    PageResponse:
+      type: object
+      properties:
+        page:
+          type: number
+        offset:
+          type: number
+      required:
+        - name
+        - phoneNumber
+    PageResponseSchool:
+      allOf:
+        - $ref: "#/components/schemas/PageResponse"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/School"
