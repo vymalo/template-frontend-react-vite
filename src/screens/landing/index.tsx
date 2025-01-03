@@ -1,8 +1,10 @@
 import { Button } from 'react-daisyui';
 import { useCallback } from 'react';
 import { toastInfo } from '@mod/notification';
+import { useTranslation } from 'react-i18next';
 
 export default function LandingScreen() {
+	const { t } = useTranslation('action');
 	const showToast = useCallback(() => {
 		toastInfo('Hello from the landing screen!', 'This is a toast message');
 	}, []);
@@ -14,7 +16,7 @@ export default function LandingScreen() {
 
 				<div>
 					<Button color="secondary" onClick={showToast}>
-						Click me!
+						{t('showToast')}
 					</Button>
 				</div>
 			</div>

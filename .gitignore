@@ -14,6 +14,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+bundlemeta.json
 *.local
 
 # Editor directories and files

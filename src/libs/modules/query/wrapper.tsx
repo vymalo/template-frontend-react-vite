@@ -4,7 +4,7 @@ import { asyncStoragePersister, queryClient } from '@/libs/modules/query/client.
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 
-export default function QueryWrapper({ children }: PropsWithChildren<{}>) {
+export default function QueryWrapper({ children }: PropsWithChildren) {
 	return (
 		<PersistQueryClientProvider
 			client={queryClient}

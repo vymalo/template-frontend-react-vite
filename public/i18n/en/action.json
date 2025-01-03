@@ -1,16 +1,3 @@
 {
-  "save": "Save",
-  "cancel": "Cancel",
-  "delete": "Delete",
-  "edit": "Edit",
-  "add": "Add",
-  "close": "Close",
-  "back": "Back",
-  "next": "Next",
-  "finish": "Finish",
-  "search": "Search",
-  "reset": "Reset",
-  "seeMore": "See more",
-  "seeLess": "See less",
-  "go_back": "Go back"
+  "showToast": "Show Toast"
 }
