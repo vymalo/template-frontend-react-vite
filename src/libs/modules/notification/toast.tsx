@@ -28,8 +28,7 @@ export const toastMessage = (
           colorClasses[color][0],
           t.visible ? 'animate-enter' : 'animate-leave',
           t.className,
-        )}
-      >
+        )}>
         <div>
           {msg && <h3 className='font-bold'>{msg}</h3>}
           {subtitle && <div className='text-xs'>{subtitle}</div>}
@@ -38,8 +37,7 @@ export const toastMessage = (
         <div>
           <button
             onClick={() => toast.dismiss(t.id)}
-            className={twMerge('btn btn-circle btn-ghost btn-sm')}
-          >
+            className={twMerge('btn btn-circle btn-ghost btn-sm')}>
             <X />
           </button>
         </div>

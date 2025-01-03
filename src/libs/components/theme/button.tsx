@@ -34,8 +34,7 @@ export default function ThemeToggle({ responsive = true }: ThemeToggleProps) {
       responsive={responsive}
       data-set-theme={nextTheme}
       onClick={onChange}
-      data-click-track-event='theme-toggle'
-    >
+      data-click-track-event='theme-toggle'>
       {/* sun icon */}
       {theme === 'vymalo-light' && <Sun className='h-6 w-6' />}
 

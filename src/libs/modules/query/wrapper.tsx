@@ -11,8 +11,7 @@ export default function QueryWrapper({ children }: PropsWithChildren) {
     <PersistQueryClientProvider
       client={queryClient}
       persistOptions={{ persister: asyncStoragePersister }}
-      onSuccess={() => console.log('QueryClient rehydrated')}
-    >
+      onSuccess={() => console.log('QueryClient rehydrated')}>
       {children}
       <ReactQueryDevtools buttonPosition='bottom-right' />
     </PersistQueryClientProvider>

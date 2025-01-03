@@ -19,8 +19,7 @@ export default function AppNavBar() {
                 <span
                   className={twMerge('btn btn-outline', [
                     isActive && 'btn-secondary',
-                  ])}
-                >
+                  ])}>
                   Schools
                 </span>
               ) : (
@@ -35,8 +34,7 @@ export default function AppNavBar() {
                 <span
                   className={twMerge('btn btn-outline', [
                     isActive && 'btn-secondary',
-                  ])}
-                >
+                  ])}>
                   Single Schools Example
                 </span>
               ) : (

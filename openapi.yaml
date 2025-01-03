@@ -59,6 +59,8 @@ paths:
         the admins and now we shall also validate with the complete it
         using the `updateSchool` method
       operationId: createSchool
+      security:
+        - kc_auth: []
       requestBody:
         description: Send sms request
         content:
@@ -214,5 +216,16 @@ components:
           properties:
             items:
               type: array
+              maxItems: 100
               items:
                 $ref: '#/components/schemas/School'
+  securitySchemes:
+    kc_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://accounts.ssegning.com/realms/konk/protocol/openid-connect/auth
+          scopes: {}
+        password:
+          tokenUrl: https://accounts.ssegning.com/realms/konk/protocol/openid-connect/token
+          scopes: {}
