@@ -31,3 +31,6 @@ bundlemeta.json
 coverage
 *storybook.log
 storybook-static
+
+public/*.ico
+public/*.png
