@@ -16,7 +16,7 @@ externalDocs:
     our website 😉.
   url: https://school.vymalo.com
 servers:
-  - url: "{scheme}://{host}:{port}"
+  - url: '{scheme}://{host}:{port}'
     description: Random Server
     variables:
       scheme:
@@ -31,11 +31,11 @@ servers:
         default: localhost
       port:
         enum:
-          - "3000"
-          - "8080"
-          - "80"
-          - "443"
-        default: "3000"
+          - '3000'
+          - '8080'
+          - '80'
+          - '443'
+        default: '3000'
   - url: https://{env}.vymalo.com
     description: Vymalo Environment
     variables:
@@ -64,27 +64,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SimpleSchool"
+              $ref: '#/components/schemas/SimpleSchool'
         required: true
       responses:
         200:
-          description: "successful operation"
+          description: 'successful operation'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/School"
+                $ref: '#/components/schemas/School'
         400:
-          description: "wrong content provided"
+          description: 'wrong content provided'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
         500:
-          description: "Internal server"
+          description: 'Internal server'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
     get:
       tags:
         - school
@@ -95,23 +95,23 @@ paths:
       operationId: getSchools
       responses:
         200:
-          description: "successful operation"
+          description: 'successful operation'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PageResponseSchool"
+                $ref: '#/components/schemas/PageResponseSchool'
         400:
-          description: "wrong content provided"
+          description: 'wrong content provided'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
         500:
-          description: "Internal server"
+          description: 'Internal server'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
   /api/schools/{id}:
     get:
       tags:
@@ -130,23 +130,23 @@ paths:
             format: cuid
       responses:
         200:
-          description: "successful operation"
+          description: 'successful operation'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/School"
+                $ref: '#/components/schemas/School'
         400:
-          description: "wrong content provided"
+          description: 'wrong content provided'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
         500:
-          description: "Internal server"
+          description: 'Internal server'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     Error:
@@ -161,15 +161,15 @@ components:
         - code
     School:
       allOf:
-        - $ref: "#/components/schemas/Model"
-        - $ref: "#/components/schemas/SimpleSchool"
+        - $ref: '#/components/schemas/Model'
+        - $ref: '#/components/schemas/SimpleSchool'
     SimpleSchool:
       type: object
       properties:
         name:
           type: string
         contact:
-          $ref: "#/components/schemas/SchoolContact"
+          $ref: '#/components/schemas/SchoolContact'
       required:
         - name
         - contact
@@ -209,10 +209,10 @@ components:
         - phoneNumber
     PageResponseSchool:
       allOf:
-        - $ref: "#/components/schemas/PageResponse"
+        - $ref: '#/components/schemas/PageResponse'
         - type: object
           properties:
             items:
               type: array
               items:
-                $ref: "#/components/schemas/School"
+                $ref: '#/components/schemas/School'

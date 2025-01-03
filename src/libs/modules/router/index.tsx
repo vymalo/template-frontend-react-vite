@@ -1,7 +1,11 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { lazy } from 'react';
-import { schoolAction, schoolLoader, singleSchoolLoader } from '@/services/school';
+import {
+  schoolAction,
+  schoolLoader,
+  singleSchoolLoader,
+} from '@/services/school';
 import { queryClient } from '@mod/query';
+import { lazy } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const RootScreen = lazy(() => import('@scr/root'));
@@ -16,7 +20,6 @@ const AllSchools = lazy(() => import('@scr/all-schools'));
 const CreateSchoolScreen = lazy(() => import('@scr/create-school'));
 // eslint-disable-next-line react-refresh/only-export-components
 const SingleSchoolScreen = lazy(() => import('@scr/single-school'));
-
 
 export const router = createBrowserRouter([
   {

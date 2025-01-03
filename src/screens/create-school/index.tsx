@@ -1,7 +1,3 @@
 export default function CreateSchoolScreen() {
-	return (
-		<>
-			Welcome to the create school screen!
-		</>
-	);
+  return <>Welcome to the create school screen!</>;
 }

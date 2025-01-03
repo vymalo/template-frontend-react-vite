@@ -10,13 +10,13 @@ const config: StorybookConfig = {
     '@storybook/addon-themes',
   ],
   framework: {
-    'name': '@storybook/react-vite',
-    'options': {
+    name: '@storybook/react-vite',
+    options: {
       builder: {
         viteConfigPath: '.storybook/storybook.vite.config.ts',
       },
     },
   },
-  // staticDirs: ['../public'],
+  staticDirs: ['../public'],
 };
 export default config;

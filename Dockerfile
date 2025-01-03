@@ -1,7 +1,7 @@
 FROM node:lts-alpine as base
 
 LABEL maintainer="Stephane Segning <selastlambou@gmail.com>"
-LABEL org.opencontainers.image.description="Medusa API for the Vymalo Project"
+LABEL org.opencontainers.image.description="App API for the Vymalo Project"
 
 WORKDIR /app
 
@@ -27,17 +27,27 @@ RUN yarn codegen && yarn generate-pwa-assets && yarn build
 FROM nginx:stable-alpine
 
 LABEL maintainer="Stephane Segning <selastlambou@gmail.com>"
-LABEL org.opencontainers.image.description="UI Frontend for the Vymalo Project"
+LABEL org.opencontainers.image.description="UI Frontend for Vymalo Projects"
+
+# Expose port 80 for the Nginx server
+EXPOSE 80
+
+# Create non-root user
+RUN addgroup -S -g 1001 app && adduser -S app -G app -u 1001
 
 # Copy the built React app to Nginx's web server directory
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./nginx/init-scripts/ /docker-entrypoint.d/
 RUN chmod +x /docker-entrypoint.d/*
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copy the built React app to Nginx's web server directory
+COPY --from=builder --chown=app:app /app/dist /usr/share/nginx/html
 
-# Expose port 80 for the Nginx server
-EXPOSE 80
+# Add healthcheck
+HEALTHCHECK --start-period=5s CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
+
+# Change the user to the non-root user
+USER app
 
 # Start Nginx when the container runs
 CMD ["nginx", "-g", "daemon off;"]

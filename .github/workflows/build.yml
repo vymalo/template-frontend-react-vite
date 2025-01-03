@@ -59,13 +59,13 @@ jobs:
           flavor: |
             latest=auto
             suffix=-${{ matrix.environment.name }},onlatest=true
-          images: "${{ env.REGISTRY }}/${{ steps.string.outputs.lowercase }}"
+          images: '${{ env.REGISTRY }}/${{ steps.string.outputs.lowercase }}'
 
       - name: Build and push
         uses: docker/build-push-action@v6
         if: github.event_name != 'pull_request'
         with:
-          push: "true"
+          push: 'true'
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}

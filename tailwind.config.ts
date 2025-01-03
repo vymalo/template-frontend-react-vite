@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss';
 import basePreset from '@vymalo/ui-preset';
 import { merge } from 'lodash';
+import type { Config } from 'tailwindcss';
 
 export default merge({}, basePreset, {
   content: [

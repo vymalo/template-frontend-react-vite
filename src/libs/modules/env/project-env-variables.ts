@@ -1,5 +1,7 @@
-type ProjectEnvVariablesType = Pick<ImportMetaEnv, 'VITE_SERVICE_VERSION' | 'VITE_SERVICE_NAME' | 'VITE_BACKEND_URL'>
-
+type ProjectEnvVariablesType = Pick<
+  ImportMetaEnv,
+  'VITE_SERVICE_VERSION' | 'VITE_SERVICE_NAME' | 'VITE_BACKEND_URL'
+>;
 
 // Environment Variable Template to Be Replaced at Runtime
 const projectEnvVariables: ProjectEnvVariablesType = {
@@ -16,10 +18,14 @@ interface ProjectEnvVariables {
 export const getProjectEnvVariables = (): ProjectEnvVariables => {
   return {
     envVariables: {
-      VITE_SERVICE_NAME: !projectEnvVariables.VITE_SERVICE_NAME.includes('VITE_')
+      VITE_SERVICE_NAME: !projectEnvVariables.VITE_SERVICE_NAME.includes(
+        'VITE_',
+      )
         ? projectEnvVariables.VITE_SERVICE_NAME
         : import.meta.env.VITE_SERVICE_NAME,
-      VITE_SERVICE_VERSION: !projectEnvVariables.VITE_SERVICE_VERSION.includes('VITE_')
+      VITE_SERVICE_VERSION: !projectEnvVariables.VITE_SERVICE_VERSION.includes(
+        'VITE_',
+      )
         ? projectEnvVariables.VITE_SERVICE_VERSION
         : import.meta.env.VITE_SERVICE_VERSION,
       VITE_BACKEND_URL: !projectEnvVariables.VITE_BACKEND_URL.includes('VITE_')

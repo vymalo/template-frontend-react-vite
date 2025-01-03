@@ -1,7 +1,7 @@
-import { Moon, Sun } from 'react-feather';
-import { themeChange } from 'theme-change';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button } from 'react-daisyui';
+import { Moon, Sun } from 'react-feather';
+import { themeChange } from 'theme-change';
 import { ThemeType } from './types';
 import { calculateNextTheme, loadTheme, saveTheme } from './utils';
 
@@ -17,7 +17,6 @@ export default function ThemeToggle({ responsive = true }: ThemeToggleProps) {
   }, [theme]);
 
   useEffect(() => {
-
     themeChange(false);
     // 👆 false parameter is required for react project
   }, []);
@@ -30,18 +29,18 @@ export default function ThemeToggle({ responsive = true }: ThemeToggleProps) {
 
   return (
     <Button
-      size="sm"
-      shape="circle"
+      size='sm'
+      shape='circle'
       responsive={responsive}
       data-set-theme={nextTheme}
       onClick={onChange}
-      data-click-track-event="theme-toggle"
+      data-click-track-event='theme-toggle'
     >
       {/* sun icon */}
-      {theme === 'vymalo-light' && <Sun className="h-6 w-6" />}
+      {theme === 'vymalo-light' && <Sun className='h-6 w-6' />}
 
       {/* moon icon */}
-      {theme === 'vymalo-dark' && <Moon className="h-6 w-6" />}
+      {theme === 'vymalo-dark' && <Moon className='h-6 w-6' />}
     </Button>
   );
 }

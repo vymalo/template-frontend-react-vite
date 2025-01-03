@@ -1,16 +1,16 @@
-import '@mod/tracing';
 import '@fontsource/roboto/400.css';
+import '@mod/tracing';
 import './index.scss';
 
-import { StrictMode } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { createRoot } from 'react-dom/client';
-import { router } from '@mod/router';
-import Notification from '@mod/notification';
-import Versioning from '@mod/versioning';
-import QueryWrapper from '@mod/query';
 import { i18nFn } from '@mod/i18n';
+import Notification from '@mod/notification';
+import QueryWrapper from '@mod/query';
+import { router } from '@mod/router';
+import Versioning from '@mod/versioning';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
+import { RouterProvider } from 'react-router-dom';
 
 async function main() {
   const i18n = await i18nFn();

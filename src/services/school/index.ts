@@ -1,2 +1,2 @@
-export * from './loaders';
 export * from './actions';
+export * from './loaders';

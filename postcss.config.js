@@ -3,9 +3,9 @@
  * @type {import('postcss-load-config').Config}
  */
 export default {
-	plugins: {
-		cssnano: {},
-		autoprefixer: {},
-		tailwindcss: {},
-	},
+  plugins: {
+    cssnano: {},
+    autoprefixer: {},
+    tailwindcss: {},
+  },
 };
