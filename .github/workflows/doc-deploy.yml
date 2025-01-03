@@ -16,6 +16,12 @@ jobs:
       # Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+
+      # Enable Corepack
+      - name: Enable Corepack
+        run: corepack enable
 
       # Set up Python environment
       - name: Set up Python

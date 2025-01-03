@@ -1,6 +1,6 @@
 import ThemeToggle from './button';
 
-import type { Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Component/ThemeToggle',
@@ -14,7 +14,22 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: {},
+  args: {
+    responsive: true,
+  },
 } satisfies Meta<typeof ThemeToggle>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    responsive: true,
+  },
+};
+
+export const NotResponsive: Story = {
+  args: {
+    responsive: false,
+  },
+};

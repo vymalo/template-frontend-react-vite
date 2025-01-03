@@ -1,9 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  'stories': [
-    '../src/**/*.@(story|stories).@(js|jsx|mjs|ts|tsx)',
-  ],
+  stories: ['../src/**/*.@(story|stories).@(ts|tsx)'],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-essentials',
@@ -13,8 +11,12 @@ const config: StorybookConfig = {
   ],
   framework: {
     'name': '@storybook/react-vite',
-    'options': {},
+    'options': {
+      builder: {
+        viteConfigPath: '.storybook/storybook.vite.config.ts',
+      },
+    },
   },
-  staticDirs: ['../public'],
+  // staticDirs: ['../public'],
 };
 export default config;
