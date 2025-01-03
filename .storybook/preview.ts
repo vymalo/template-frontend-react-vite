@@ -1,4 +1,4 @@
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import '../src/index.scss';
 
@@ -11,15 +11,14 @@ const preview: Preview = {
       },
     },
   },
-
   decorators: [
-    withThemeByClassName({
+    withThemeByDataAttribute({
       themes: {
-        // nameOfTheme: 'classNameForTheme',
-        light: '',
-        dark: 'dark',
+        light: 'vymalo-light',
+        dark: 'vymalo-dark',
       },
-      defaultTheme: 'light',
+      defaultTheme: 'vymalo-light',
+      attributeName: 'data-theme',
     }),
   ],
 };
