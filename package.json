@@ -31,7 +31,7 @@
     "@opentelemetry/semantic-conventions": "^1.28.0",
     "@tanstack/query-async-storage-persister": "^5.62.8",
     "@tanstack/react-query": "^5.62.10",
-    "@tanstack/react-query-devtools": "^5.62.8",
+    "@tanstack/react-query-devtools": "^5.64.2",
     "@tanstack/react-query-persist-client": "^5.62.8",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
