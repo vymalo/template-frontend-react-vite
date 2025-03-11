@@ -1,0 +1,1 @@
+System.register(["./index-legacy-CLGdO4DK.js"],(function(t,e){"use strict";var r;return{setters:[t=>{r=t.r}],execute:function(){var e,o={};t("c",function(){if(e)return o;e=1;var t=r();return o.createRoot=t.createRoot,o.hydrateRoot=t.hydrateRoot,o}())}}}));
