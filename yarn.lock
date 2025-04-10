@@ -4285,6 +4285,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.72.2":
+  version: 5.72.2
+  resolution: "@tanstack/query-core@npm:5.72.2"
+  checksum: 10c0/b1e4670c327a9f7e4892b5eb0c423ae230e440b30b749796595ecd7e19a683f613dd94e81fa97e420d765d2325493f5a0dfe3f6fe2ed860c2522c52a281c3e03
+  languageName: node
+  linkType: hard
+
 "@tanstack/query-devtools@npm:5.64.2":
   version: 5.64.2
   resolution: "@tanstack/query-devtools@npm:5.64.2"
@@ -4301,6 +4308,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-persist-client-core@npm:5.72.2":
+  version: 5.72.2
+  resolution: "@tanstack/query-persist-client-core@npm:5.72.2"
+  dependencies:
+    "@tanstack/query-core": "npm:5.72.2"
+  checksum: 10c0/7e79c396db8e04ba39427e2402fb58df4872bff6b2d7526fa5771dd203b552b65d9130cb4a313a917cf7ed077c4036a7db5566652da33dc7a5c61c9c7d231a5d
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query-devtools@npm:^5.64.2":
   version: 5.64.2
   resolution: "@tanstack/react-query-devtools@npm:5.64.2"
@@ -4313,15 +4329,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-persist-client@npm:^5.62.8":
-  version: 5.62.8
-  resolution: "@tanstack/react-query-persist-client@npm:5.62.8"
+"@tanstack/react-query-persist-client@npm:^5.72.2":
+  version: 5.72.2
+  resolution: "@tanstack/react-query-persist-client@npm:5.72.2"
   dependencies:
-    "@tanstack/query-persist-client-core": "npm:5.62.8"
+    "@tanstack/query-persist-client-core": "npm:5.72.2"
   peerDependencies:
-    "@tanstack/react-query": ^5.62.8
+    "@tanstack/react-query": ^5.72.2
     react: ^18 || ^19
-  checksum: 10c0/efde85609f141c54265f9c950d296d700f55b457dcdef49aadab7a10f5b4d2d5e67e484d47937aa03a3d4fdda8736251c6a55cc6259cd366525fd81d137a9717
+  checksum: 10c0/611c185abee0d96c52eec896b04bf36cb7470580a0ef0e69edd6dd1d539d7e69219de0a266f61386cd8725704c60106411633c8e62d42fca3262a2801592b5a2
   languageName: node
   linkType: hard
 
@@ -13373,7 +13389,7 @@ __metadata:
     "@tanstack/query-async-storage-persister": "npm:^5.62.8"
     "@tanstack/react-query": "npm:^5.62.10"
     "@tanstack/react-query-devtools": "npm:^5.64.2"
-    "@tanstack/react-query-persist-client": "npm:^5.62.8"
+    "@tanstack/react-query-persist-client": "npm:^5.72.2"
     "@testing-library/react": "npm:^16.2.0"
     "@tsconfig/vite-react": "npm:^3.4.0"
     "@types/lodash": "npm:^4.17.14"
